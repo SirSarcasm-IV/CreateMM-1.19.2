@@ -1,4 +1,4 @@
-package net.sirsarcasm.examplemod.networking.packet;
+package net.sirsarcasm.createmm.networking.packet;
 
 import com.google.common.graph.Network;
 import net.minecraft.network.FriendlyByteBuf;

@@ -1,4 +1,4 @@
-package net.sirsarcasm.createmm.overheat;
+package net.sirsarcasm.createmm.charge;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -11,23 +11,23 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public class JetpackOverheatProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
-    public static Capability<JetpackOverheat> JETPACK_OVERHEAT = CapabilityManager.get(new CapabilityToken<JetpackOverheat>() { });
+public class JetpackChargeProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
+    public static Capability<JetpackCharge> JETPACK_CHARGE = CapabilityManager.get(new CapabilityToken<JetpackCharge>() { });
 
-    private JetpackOverheat heat = null;
-    private final LazyOptional<JetpackOverheat> optional = LazyOptional.of(this::createJetpackOverheat);
+    private JetpackCharge charge = null;
+    private final LazyOptional<JetpackCharge> optional = LazyOptional.of(this::createJetpackOverheat);
 
-    private JetpackOverheat createJetpackOverheat() {
-        if(this.heat == null) {
-            this.heat = new JetpackOverheat();
+    private JetpackCharge createJetpackOverheat() {
+        if(this.charge == null) {
+            this.charge = new JetpackCharge();
         }
 
-        return this.heat;
+        return this.charge;
     }
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction direction) {
-        if(cap == JETPACK_OVERHEAT) {
+        if(cap == JETPACK_CHARGE) {
             return optional.cast();
         }
 

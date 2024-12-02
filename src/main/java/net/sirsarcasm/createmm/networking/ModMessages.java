@@ -7,7 +7,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.sirsarcasm.createmm.CreateMM;
-import net.sirsarcasm.examplemod.networking.packet.ExampleC2SPacket;
+import net.sirsarcasm.createmm.networking.packet.ExampleC2SPacket;
 
 public class ModMessages {
     private static SimpleChannel INSTANCE;
