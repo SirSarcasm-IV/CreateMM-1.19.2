@@ -1,6 +1,7 @@
 package net.sirsarcasm.createmm.event;
 
 import net.sirsarcasm.createmm.charge.JetpackCharge;
+import net.sirsarcasm.createmm.charge.JetpackChargeProvider;
 import net.sirsarcasm.createmm.util.KeyBinding;
 import net.sirsarcasm.createmm.item.JetpackItem;
 import net.minecraft.client.Minecraft;
@@ -15,15 +16,19 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = "create_mm", bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModEventHandlers {
 
+    private static JetpackCharge charge;
+
+
 
     @SubscribeEvent
     public static void onKeyInput(TickEvent.ClientTickEvent event) {
         if (KeyBinding.JET_LAUNCH.isDown()) {
             Player player = Minecraft.getInstance().player;
-            if (player != null && player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof JetpackItem) {
+            if (player != null && player.getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof JetpackItem && charge.getCharge() > 0) {
                 Vec3 lookVec = player.getLookAngle();
                 player.setDeltaMovement(lookVec.scale(1.5)); // Adjust the scale factor for desired launch strength
                 player.hurtMarked = true; // Ensures the player velocity is updated on the client#
+                charge.subCharge(1);
             }
         }
     }
