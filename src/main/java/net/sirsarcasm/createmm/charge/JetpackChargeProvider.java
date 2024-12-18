@@ -30,7 +30,6 @@ public class JetpackChargeProvider implements ICapabilityProvider, INBTSerializa
         if(cap == JETPACK_CHARGE) {
             return optional.cast();
         }
-
         return null;
     }
 

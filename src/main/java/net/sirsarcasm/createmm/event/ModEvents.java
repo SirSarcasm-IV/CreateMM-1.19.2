@@ -46,9 +46,9 @@ public class ModEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if(event.side == LogicalSide.SERVER) {
             event.player.getCapability(JetpackChargeProvider.JETPACK_CHARGE).ifPresent(charge -> {
-                if(charge.getCharge() < 3 && event.player.getRandom().nextFloat() < 0.005f) { // Once Every 10 Seconds on Avg
-                    charge.addCharge(1);
-                    event.player.sendSystemMessage(Component.literal("Added Charge"));
+                if(charge.getCharge() <= 1190) { // Once Every 10 Seconds on Avg
+                    charge.addCharge(10);
+                    event.player.sendSystemMessage(Component.literal("added charge"));
                 }
             });
         }

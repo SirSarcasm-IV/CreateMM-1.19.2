@@ -5,7 +5,7 @@ import net.minecraft.nbt.CompoundTag;
 public class JetpackCharge {
     private int charge;
     private final int MIN_CHARGE = 0;
-    private final int MAX_CHARGE = 3;
+    private final int MAX_CHARGE = 1200;
 
     public int getCharge() {
         return charge;

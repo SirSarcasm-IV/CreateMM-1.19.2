@@ -10,7 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.sirsarcasm.createmm.CreateMM;
 import net.sirsarcasm.createmm.networking.ModMessages;
 import net.sirsarcasm.createmm.util.KeyBinding;
-import net.sirsarcasm.examplemod.networking.packet.ExampleC2SPacket;
+import net.sirsarcasm.createmm.networking.packet.ExampleC2SPacket;
 
 public class ClientEvents {
     @Mod.EventBusSubscriber(modid = CreateMM.MOD_ID, value = Dist.CLIENT)
