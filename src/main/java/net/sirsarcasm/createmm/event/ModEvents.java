@@ -49,7 +49,7 @@ public class ModEvents {
         if(event.side == LogicalSide.SERVER) {
             event.player.getCapability(JetpackChargeProvider.JETPACK_CHARGE).ifPresent(charge -> {
                 if((charge.getCharge() <= 1190) && event.player.isOnGround()) {
-                    charge.addCharge(10); // 1 charge per 2 seconds
+                    charge.addCharge(10); // 1 charge per 2 seconds, 10 per tick
                     event.player.sendSystemMessage(Component.literal("Current Charge " + charge.getCharge()));
                 }
             });
