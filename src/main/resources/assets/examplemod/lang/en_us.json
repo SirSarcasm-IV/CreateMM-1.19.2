@@ -7,5 +7,7 @@
   "itemGroup.exampletab": "Example Mod Tab",
 
   "key.catagory.sirsarcasm.example": "Example Mod",
-  "key.sirsarcasm.example": "Example Key"
+  "key.sirsarcasm.example": "Example Key",
+
+  "message.tutorialmod.no_charge": "Not enough charge"
 }

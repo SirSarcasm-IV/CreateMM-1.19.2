@@ -15,6 +15,8 @@ import net.sirsarcasm.createmm.CreateMM;
 import net.sirsarcasm.createmm.charge.JetpackCharge;
 import net.sirsarcasm.createmm.charge.JetpackChargeProvider;
 
+import static com.simibubi.create.content.equipment.armor.BacktankUtil.consumeAir;
+
 @Mod.EventBusSubscriber(modid = CreateMM.MOD_ID)
 public class ModEvents {
     @SubscribeEvent
@@ -46,9 +48,9 @@ public class ModEvents {
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if(event.side == LogicalSide.SERVER) {
             event.player.getCapability(JetpackChargeProvider.JETPACK_CHARGE).ifPresent(charge -> {
-                if(charge.getCharge() <= 1190) { // Once Every 10 Seconds on Avg
-                    charge.addCharge(10);
-                    event.player.sendSystemMessage(Component.literal("added charge"));
+                if((charge.getCharge() <= 1190) && event.player.isOnGround()) {
+                    charge.addCharge(10); // 1 charge per 2 seconds
+                    event.player.sendSystemMessage(Component.literal("Current Charge " + charge.getCharge()));
                 }
             });
         }

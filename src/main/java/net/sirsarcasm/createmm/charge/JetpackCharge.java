@@ -16,7 +16,7 @@ public class JetpackCharge {
     }
 
     public void subCharge(int sub) {
-        this.charge = Math.max(charge + sub, MIN_CHARGE);
+        this.charge = Math.max(charge - sub, MIN_CHARGE);
     }
 
     public void copyFrom(JetpackCharge source) {

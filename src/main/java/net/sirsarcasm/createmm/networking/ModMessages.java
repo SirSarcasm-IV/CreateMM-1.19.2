@@ -7,7 +7,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.sirsarcasm.createmm.CreateMM;
-import net.sirsarcasm.createmm.networking.packet.ExampleC2SPacket;
+import net.sirsarcasm.createmm.networking.packet.JetLaunchC2SPacket;
 
 public class ModMessages {
     private static SimpleChannel INSTANCE;
@@ -27,10 +27,10 @@ public class ModMessages {
 
         INSTANCE= net;
 
-        net.messageBuilder(ExampleC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
-                .decoder(ExampleC2SPacket::new)
-                .encoder(ExampleC2SPacket::toBytes)
-                .consumerMainThread(ExampleC2SPacket::handle)
+        net.messageBuilder(JetLaunchC2SPacket.class, id(), NetworkDirection.PLAY_TO_SERVER)
+                .decoder(JetLaunchC2SPacket::new)
+                .encoder(JetLaunchC2SPacket::toBytes)
+                .consumerMainThread(JetLaunchC2SPacket::handle)
                 .add();
     }
 
